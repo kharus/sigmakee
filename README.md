@@ -1,5 +1,4 @@
-Introduction
-============
+# Introduction
 
 Sigma is an integrated development environment for logical theories that
 extend the Suggested Upper Merged Ontology.  There is a public installation
@@ -15,13 +14,13 @@ carefully following the instructions.
 You can follow the steps below to do a manual installation on linux or Mac. This
 procedure assumes that you start from your home directory and are happy with
 having directories created there. The sed command below attempts to modify
-~/.sigmakee/KBs/config.xml to conform to your local paths.  If your paths
-differ, then you may need to edit your config.xml manually. If you are running
-tomcat on vagrant or another VM, you may need to change the port value from 8080.
+`~/.sigmakee/KBs/config.xml` to conform to your local paths.  If your paths
+differ, then you may need to edit your `config.xml` manually. If you are running
+tomcat on vagrant or another VM, you may need to change the port value from `8080`.
 If you are running on a server, rather than your localhost you'll need to set
-the hostname parameter in your config.xml file. E will only work if your $TMPDIR
+the hostname parameter in your `config.xml` file. E will only work if your `$TMPDIR`
 is set correctly.  No particular version of tomcat is required. If you load a
-different version of tomcat, be sure to change $CATALINA_HOME and your paths to
+different version of tomcat, be sure to change `$CATALINA_HOME` and your paths to
 conform to the version. If you use a different mirror or version you'll need to
 change the wget commend below and Oracle Java appears to now have a key embedded
 in their URL that will change every time. Change "theuser" below to your user name.
@@ -32,11 +31,11 @@ try opening permissions on your $SIGMA_HOME, $CATALINA_HOME and $SIGMA_SRC direc
 After installing, recommended reading is the Sigma manual
 https://github.com/ontologyportal/sigmakee/blob/master/doc/manual/SigmaManual.pdf
 
-Container-Based installation
-==========================
+# Container-Based installation
 
 First, install docker if you don't have it already
 
+```bash
 sudo apt-get update
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository \
@@ -45,14 +44,15 @@ sudo add-apt-repository \
    stable"
 sudo apt-get update
 sudo apt-get install docker-ce
+```
 
 Then get the docker image and run it
 
 Pull with
-sudo docker pull apease/sigmakee2018:latest
+`sudo docker pull apease/sigmakee2018:latest`
 
 Run with
-sudo docker run -it -d -p 8080:8080 --name trial04 apease/sigmakee2018:latest "./sigmastart.sh"
+```sudo docker run -it -d -p 8080:8080 --name trial04 apease/sigmakee2018:latest "./sigmastart.sh"```
 
 Access from a browser with http://localhost:8080/sigma/login.html . Use admin for username and admin for password
 
@@ -74,10 +74,12 @@ vagrant init ubuntu/xenial64
 
 You'll need to add two commands to the Vagrantfile configuration
 
+```
 config.vm.network "forwarded_port", guest: 8080, host: 8888
 config.vm.provider "virtualbox" do |vb|
   vb.memory = "9000"
 end
+```
 
 Then execute the following
 
