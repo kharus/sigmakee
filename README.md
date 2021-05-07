@@ -91,14 +91,13 @@ then
 Access from a browser with http://localhost:8888/sigma/login.html . Use admin for username and admin for password
 
 
-Build a New Docker Image
-=========================
+# Build a New Docker Image
 
 To build a new docker container follow these steps where $SIGMA_SRC is your sigmakee git repo path.
 First, download jdk-8u171-linux-x64.rpm from http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 Note that if you don't download that exact version, you'll need to edit sigmastart.sh so that the filename
 matches.  You'll also need to make changes to track the latest Tomcat, in the bashrc and Dockerfile
-
+```
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
@@ -110,9 +109,9 @@ mkdir images
 cd images
 cp $SIGMA_SRC/docker/* .
 sudo docker build -t sigmakee2018:latest .
-
+```
 to push the image to dockerhub
-
+```
 >:~/images$ sudo docker login
 Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
 Username (apease):
@@ -136,10 +135,10 @@ c2007c9776df: Pushed
 38c81b36edfb: Pushed
 bcc97fbfc9e1: Pushed
 latest: digest: sha256:xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx size: 2417
+```
 
+# System preparation on Linux
 
-System preparation on Linux
-==========================
 Make sure that throughout the commands below that you replace "theuser" with your desired user name
 
 create user theuser
